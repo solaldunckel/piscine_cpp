@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Pony.cpp                                           :+:      :+:    :+:   */
+/*   ex04.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/18 01:28:42 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/18 01:28:43 by sdunckel         ###   ########.fr       */
+/*   Created: 2020/03/19 01:51:05 by sdunckel          #+#    #+#             */
+/*   Updated: 2020/03/19 01:55:04 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+# include <iostream>
 
-Pony::Pony()
+int		main(void)
 {
-	std::cout << "A Pony is born..." << std::endl;
-}
+	std::string		str("HI THIS IS BRAIN");
+	std::string		*str_p = &str;
+	std::string		&str_r = str;
 
-Pony::~Pony()
-{
-	std::cout << "A Pony is gone..." << std::endl;
-}
-
-void Pony::Jump()
-{
-	std::cout << "Pony has jumped!" << std::endl;
+	std::cout << "Pointer :" << std::endl << *str_p << std::endl;
+	std::cout << "Reference :" << std::endl << str_r << std::endl;
 }

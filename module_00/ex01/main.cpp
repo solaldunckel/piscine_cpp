@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 18:42:03 by sdunckel          #+#    #+#             */
-/*   Updated: 2019/12/07 02:52:18 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/03/16 19:42:52 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 void 	search_contact(Contact *phoneBook, int num)
 {
+	int		finished;
+
 	if (num == 0)
 	{
 		std::cout << "No contact in the phonebook." << std::endl;
@@ -28,29 +30,40 @@ void 	search_contact(Contact *phoneBook, int num)
 	std::cout << std::setw(10) << "INDEX" << "|";
 	std::cout << std::setw(10) << "NAME" << "|";
 	std::cout << std::setw(10) << "LAST NAME" << "|";
-	std::cout << std::setw(10) << "NICKNAME";
+	std::cout << std::setw(10) << "NICKNAME" << std::endl;
 
 	for (int i = 0; i < num; i++)
+	{
 		phoneBook[i].showSnippet();
+		std::cout << std::endl;
+	}
 
 	std::string index;
-	std::cout << ">> Type an index: ";
-	std::getline(std::cin, index);
-
-	for (int i = 0; index[i]; i++)
+	finished = 0;
+	while (!finished)
 	{
-		if (!isdigit(index[i]))
-		{
+		std::cout << ">> Type an index: ";
+		std::getline(std::cin, index);
+		if (index[0] == 0)
 			std::cout << "Error : index needs to be between 0 and " << num - 1 << std::endl;
-			break ;
-		}
-		else if (index[i + 1] == 0)
+		for (int i = 0; index[i]; i++)
 		{
-			int		n = std::stoi(index);
-			if (n < num)
-				phoneBook[n].showFull();
-			else
+			if (!isdigit(index[i]))
+			{
 				std::cout << "Error : index needs to be between 0 and " << num - 1 << std::endl;
+				break ;
+			}
+			else if (index[i + 1] == 0)
+			{
+				int		n = std::stoi(index);
+				if (n < num)
+				{
+					phoneBook[n].showFull();
+					finished = 1;
+				}
+				else
+					std::cout << "Error : index needs to be between 0 and " << num - 1 << std::endl;
+			}
 		}
 	}
 }

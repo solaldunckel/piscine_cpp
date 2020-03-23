@@ -5,34 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/14 19:22:20 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/18 01:28:56 by sdunckel         ###   ########.fr       */
+/*   Created: 2020/03/22 23:46:29 by sdunckel          #+#    #+#             */
+/*   Updated: 2020/03/23 00:34:46 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#include "File.hpp"
+#include <fcntl.h>
 
-void 	ponyOnTheStack()
+int fd_is_valid(int fd)
 {
-	Pony	pony;
-
-	std::cout << "Pony is on the stack" << std::endl;
-	pony.Jump();
+	return (fcntl(fd, F_GETFD) != -1 || errno != EBADF);
 }
 
-void 	ponyOnTheHeap()
+int		main(int argc, char **argv)
 {
-	Pony	*pony;
+	if (argc == 1)
+	{
+		if (fd_is_valid(0))
+			File::readStdin();
+		else
+			std::cerr << "cato9tails: stdin: Bad file descriptor" << std::endl;
+	}
+	else
+	{
+		for (int i = 1; i < argc; i++)
+		{
+			File	*file;
 
-	pony = new Pony;
-	std::cout << "Pony is on the heap" << std::endl;
-	pony->Jump();
-	delete pony;
-}
-
-int 	main()
-{
-	ponyOnTheStack();
-	ponyOnTheHeap();
-	return (1);
+			file = new File(argv[i]);
+			file->read();
+			delete file;
+		}
+	}
+	return (0);
 }

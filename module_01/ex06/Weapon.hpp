@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Pony.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/18 01:28:42 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/18 01:28:43 by sdunckel         ###   ########.fr       */
+/*   Created: 2020/03/22 18:54:55 by sdunckel          #+#    #+#             */
+/*   Updated: 2020/03/22 19:32:20 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
-Pony::Pony()
-{
-	std::cout << "A Pony is born..." << std::endl;
-}
+# include <iostream>
 
-Pony::~Pony()
+class Weapon
 {
-	std::cout << "A Pony is gone..." << std::endl;
-}
+	private:
+		std::string	_type;
+	public:
+		const std::string	&getType();
+		void	setType(std::string type);
+		Weapon(std::string type);
+		~Weapon();
+};
 
-void Pony::Jump()
-{
-	std::cout << "Pony has jumped!" << std::endl;
-}
+#endif

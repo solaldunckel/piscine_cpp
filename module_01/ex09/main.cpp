@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Pony.cpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/18 01:28:42 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/18 01:28:43 by sdunckel         ###   ########.fr       */
+/*   Created: 2020/03/22 23:11:52 by sdunckel          #+#    #+#             */
+/*   Updated: 2020/03/22 23:20:50 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#include "Logger.hpp"
 
-Pony::Pony()
+int		main(void)
 {
-	std::cout << "A Pony is born..." << std::endl;
-}
+	Logger	Log("output");
 
-Pony::~Pony()
-{
-	std::cout << "A Pony is gone..." << std::endl;
-}
-
-void Pony::Jump()
-{
-	std::cout << "Pony has jumped!" << std::endl;
+	Log.log("logToConsole", "test");
+	Log.log("logToFile", "test2");
+	Log.log("logToFile", "test3");
 }

@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Pony.cpp                                           :+:      :+:    :+:   */
+/*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/18 01:28:42 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/18 01:28:43 by sdunckel         ###   ########.fr       */
+/*   Created: 2020/03/18 01:34:35 by sdunckel          #+#    #+#             */
+/*   Updated: 2020/03/18 02:23:58 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#ifndef ZOMBIEEVENT_HPP
+# define ZOMBIEEVENT_HPP
 
-Pony::Pony()
-{
-	std::cout << "A Pony is born..." << std::endl;
-}
+# include <iostream>
+# include <string>
+# include "Zombie.hpp"
 
-Pony::~Pony()
+class ZombieEvent
 {
-	std::cout << "A Pony is gone..." << std::endl;
-}
+	private:
+		std::string type;
+	public:
+		ZombieEvent(std::string type);
+		~ZombieEvent();
+		void	setZombieType(std::string type);
+		Zombie	*newZombie(std::string name);
+		Zombie	*randomChump();
+};
 
-void Pony::Jump()
-{
-	std::cout << "Pony has jumped!" << std::endl;
-}
+#endif

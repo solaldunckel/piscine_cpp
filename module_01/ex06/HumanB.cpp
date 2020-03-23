@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Pony.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/18 01:28:42 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/18 01:28:43 by sdunckel         ###   ########.fr       */
+/*   Created: 2020/03/22 18:54:55 by sdunckel          #+#    #+#             */
+/*   Updated: 2020/03/22 19:32:55 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#include "HumanB.hpp"
 
-Pony::Pony()
+HumanB::HumanB(std::string name) : _name(name)
+{}
+
+HumanB::~HumanB()
+{}
+
+void	HumanB::setWeapon(Weapon &weapon)
 {
-	std::cout << "A Pony is born..." << std::endl;
+	this->_weapon = &weapon;
 }
 
-Pony::~Pony()
+void	HumanB::attack()
 {
-	std::cout << "A Pony is gone..." << std::endl;
-}
+	std::string format;
 
-void Pony::Jump()
-{
-	std::cout << "Pony has jumped!" << std::endl;
+	format += this->_name + " attacks with his " + this->_weapon->getType();
+	std::cout << format << std::endl;
 }

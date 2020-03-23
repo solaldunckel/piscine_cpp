@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Pony.cpp                                           :+:      :+:    :+:   */
+/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/18 01:28:42 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/18 01:28:43 by sdunckel         ###   ########.fr       */
+/*   Created: 2020/03/19 01:17:42 by sdunckel          #+#    #+#             */
+/*   Updated: 2020/03/19 01:46:42 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#ifndef ZOMBIEHORDE_HPP
+# define ZOMBIEHORDE_HPP
 
-Pony::Pony()
-{
-	std::cout << "A Pony is born..." << std::endl;
-}
+# include <iostream>
+# include "Zombie.hpp"
 
-Pony::~Pony()
+class ZombieHorde
 {
-	std::cout << "A Pony is gone..." << std::endl;
-}
+	private:
+		int		_num;
+		Zombie	*_horde;
+	public:
+		ZombieHorde(int num);
+		~ZombieHorde();
+		void		announce();
+		std::string	randomChump();
+};
 
-void Pony::Jump()
-{
-	std::cout << "Pony has jumped!" << std::endl;
-}
+#endif

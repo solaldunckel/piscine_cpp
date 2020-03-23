@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 22:32:19 by sdunckel          #+#    #+#             */
-/*   Updated: 2019/12/07 02:48:18 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/03/16 19:32:50 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,7 @@ void Contact::showSnippet()
 	std::cout << std::setw(10) << this->index << "|";
 	std::cout << std::setw(10) << firstName << "|";
 	std::cout << std::setw(10) << lastName << "|";
-	std::cout << std::setw(10) << nickname << std::endl;
-	std::cout << std::endl;
+	std::cout << std::setw(10) << nickname;
 }
 
 void Contact::showFull()

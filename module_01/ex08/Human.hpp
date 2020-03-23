@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Pony.cpp                                           :+:      :+:    :+:   */
+/*   Human.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/18 01:28:42 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/18 01:28:43 by sdunckel         ###   ########.fr       */
+/*   Created: 2020/03/22 22:21:34 by sdunckel          #+#    #+#             */
+/*   Updated: 2020/03/22 22:44:57 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#ifndef HUMAN_HPP
+# define HUMAN_HPP
 
-Pony::Pony()
-{
-	std::cout << "A Pony is born..." << std::endl;
-}
+# include <iostream>
 
-Pony::~Pony()
+class Human
 {
-	std::cout << "A Pony is gone..." << std::endl;
-}
+	private:
+		void	meleeAttack(std::string const &target);
+		void	rangedAttack(std::string const &target);
+		void	intimidatingShout(std::string const &target);
+	public:
+		void	action(std::string const &action_name, std::string const &target);
+};
 
-void Pony::Jump()
-{
-	std::cout << "Pony has jumped!" << std::endl;
-}
+#endif

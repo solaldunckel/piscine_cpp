@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Pony.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/18 01:28:42 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/18 01:28:43 by sdunckel         ###   ########.fr       */
+/*   Created: 2020/03/19 01:56:46 by sdunckel          #+#    #+#             */
+/*   Updated: 2020/03/22 18:47:31 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-Pony::Pony()
-{
-	std::cout << "A Pony is born..." << std::endl;
-}
+# include <iostream>
+# include <iomanip>
+# include <sstream>
+# include <ios>
 
-Pony::~Pony()
+class Brain
 {
-	std::cout << "A Pony is gone..." << std::endl;
-}
+	private:
+	public:
+		Brain();
+		~Brain();
+		std::string		identify();
+};
 
-void Pony::Jump()
-{
-	std::cout << "Pony has jumped!" << std::endl;
-}
+#endif

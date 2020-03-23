@@ -5,34 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/14 19:22:20 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/18 01:28:56 by sdunckel         ###   ########.fr       */
+/*   Created: 2020/03/18 01:59:28 by sdunckel          #+#    #+#             */
+/*   Updated: 2020/03/18 02:54:41 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+# include "Zombie.hpp"
+# include "ZombieEvent.hpp"
 
-void 	ponyOnTheStack()
+int		main(void)
 {
-	Pony	pony;
+	Zombie		*zombie;
+	Zombie		*zombie3;
+	Zombie		zombie2("Xavier Niel", "Supreme Leader");
+	ZombieEvent event("Noobies");
 
-	std::cout << "Pony is on the stack" << std::endl;
-	pony.Jump();
-}
+	zombie2.announce();
+	zombie = new Zombie("Solal", "Chief Leader");
+	zombie->announce();
+	delete zombie;
 
-void 	ponyOnTheHeap()
-{
-	Pony	*pony;
+	zombie = event.randomChump();
 
-	pony = new Pony;
-	std::cout << "Pony is on the heap" << std::endl;
-	pony->Jump();
-	delete pony;
-}
-
-int 	main()
-{
-	ponyOnTheStack();
-	ponyOnTheHeap();
-	return (1);
+	event.setZombieType("Looser");
+	zombie3 = event.randomChump();
+	
+	delete zombie3;
+	delete zombie;
+	return (0);
 }

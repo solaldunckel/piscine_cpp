@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Pony.cpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/18 01:28:42 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/18 01:28:43 by sdunckel         ###   ########.fr       */
+/*   Created: 2020/03/22 22:43:00 by sdunckel          #+#    #+#             */
+/*   Updated: 2020/03/22 22:45:08 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#include "Human.hpp"
 
-Pony::Pony()
+int		main(void)
 {
-	std::cout << "A Pony is born..." << std::endl;
-}
+	Human Bob;
 
-Pony::~Pony()
-{
-	std::cout << "A Pony is gone..." << std::endl;
-}
-
-void Pony::Jump()
-{
-	std::cout << "Pony has jumped!" << std::endl;
+	Bob.action("meleeAttack", "Denis");
+	Bob.action("rangedAttack", "Denis");
+	Bob.action("intimidatingShout", "Denis");
+	Bob.action("Fireball", "Denis");
 }

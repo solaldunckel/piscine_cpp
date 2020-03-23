@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Pony.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/18 01:28:42 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/18 01:28:43 by sdunckel         ###   ########.fr       */
+/*   Created: 2020/03/22 18:54:55 by sdunckel          #+#    #+#             */
+/*   Updated: 2020/03/22 19:22:43 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
-Pony::Pony()
-{
-	std::cout << "A Pony is born..." << std::endl;
-}
+# include <iostream>
+# include "Weapon.hpp"
 
-Pony::~Pony()
+class HumanB
 {
-	std::cout << "A Pony is gone..." << std::endl;
-}
+	private:
+		std::string _name;
+		Weapon		*_weapon;
+	public:
+		HumanB(std::string name);
+		~HumanB();
+		void	setWeapon(Weapon &weapon);
+		void	attack();
+};
 
-void Pony::Jump()
-{
-	std::cout << "Pony has jumped!" << std::endl;
-}
+#endif

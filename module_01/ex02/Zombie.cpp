@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Pony.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/18 01:28:42 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/18 01:28:43 by sdunckel         ###   ########.fr       */
+/*   Created: 2020/03/18 01:34:35 by sdunckel          #+#    #+#             */
+/*   Updated: 2020/03/19 01:49:39 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Pony.hpp"
+#include "Zombie.hpp"
 
-Pony::Pony()
+Zombie::Zombie()
 {
-	std::cout << "A Pony is born..." << std::endl;
+	return ;
 }
 
-Pony::~Pony()
+Zombie::~Zombie()
 {
-	std::cout << "A Pony is gone..." << std::endl;
+	return ;
 }
 
-void Pony::Jump()
+void	Zombie::announce()
 {
-	std::cout << "Pony has jumped!" << std::endl;
+	std::string	output;
+
+	output = "<" + this->name + " (" + this->type + ")> Braiiiiiiinnnssss...";
+	std::cout << output << std::endl;
+	return ;
 }
