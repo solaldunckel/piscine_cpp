@@ -6,15 +6,21 @@
 #    By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/06 18:09:59 by sdunckel          #+#    #+#              #
-#    Updated: 2020/03/22 23:45:59 by sdunckel         ###   ########.fr        #
+#    Updated: 2020/03/23 04:07:39 by sdunckel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= cato9tails
 
-SRCS			= \
+SRCS_LIST		= \
 					main.cpp \
 					File.cpp
+SRCS_FOLDER		= srcs
+SRCS			= $(addprefix ${SRCS_FOLDER}/, ${SRCS_LIST})
+
+OBJS			= $(SRCS:.cpp=.o)
+
+HEADER			= includes
 
 CC				= clang++
 CFLAGS 			= -Wall -Wextra -Werror
@@ -22,8 +28,8 @@ RM				= rm -f
 
 all:			$(NAME)
 
-$(NAME):		$(SRCS)
-				$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+$(NAME):		$(OBJS)
+				$(CC) $(CFLAGS) -I $(HEADER) $(OBJS) -o $(NAME)
 
 clean:
 
