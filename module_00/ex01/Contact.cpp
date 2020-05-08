@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 22:32:19 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/16 19:32:50 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/05/08 14:10:14 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Contact::Contact()
 Contact::~Contact()
 {}
 
-void Contact::create()
+void Contact::create(int index)
 {
 	std::cout << "First name: ";
 	std::getline(std::cin, this->firstName);
@@ -55,7 +55,7 @@ void Contact::create()
 	std::cout << "Your darkest secret: ";
 	std::getline(std::cin, this->secret);
 
-	this->index = counter++;
+	this->index = index;
 }
 
 void Contact::showSnippet()

@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/18 01:59:28 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/18 02:54:41 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/05/08 12:01:24 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		main(void)
 
 	event.setZombieType("Looser");
 	zombie3 = event.randomChump();
-	
+
 	delete zombie3;
 	delete zombie;
 	return (0);

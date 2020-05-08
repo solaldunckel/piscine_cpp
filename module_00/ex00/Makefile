@@ -6,7 +6,7 @@
 #    By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/06 18:09:59 by sdunckel          #+#    #+#              #
-#    Updated: 2019/12/06 21:53:45 by sdunckel         ###   ########.fr        #
+#    Updated: 2020/05/08 14:06:22 by sdunckel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,16 +15,22 @@ NAME			= megaphone
 SRCS			= \
 					megaphone.cpp
 
+OBJS			= ${SRCS:.cpp=.o}
+
 CC				= clang++
 CFLAGS 			= -Wall -Wextra -Werror
 RM				= rm -f
 
 all:			$(NAME)
 
-$(NAME):		$(SRCS)
-				$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+$(NAME):		$(OBJS)
+				$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+%.o: %.cpp
+				${CC} ${CFLAGS} -o $@ -c $<
 
 clean:
+				${RM} ${OBJS}
 
 fclean:			clean
 				${RM} ${NAME}

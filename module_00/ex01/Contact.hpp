@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 22:31:56 by sdunckel          #+#    #+#             */
-/*   Updated: 2019/12/07 02:51:08 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/05/08 14:10:29 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 		public:
 			Contact();
 			~Contact();
-			void create();
+			void create(int index);
 			void showSnippet();
 			void showFull();
 		private:
@@ -36,7 +36,6 @@
 			std::string underwear;
 			std::string secret;
 			int			index;
-			static int	counter;
 	};
 
 #endif

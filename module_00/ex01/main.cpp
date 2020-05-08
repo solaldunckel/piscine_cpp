@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/06 18:42:03 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/16 19:42:52 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/05/08 14:13:56 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,13 @@ void 	search_contact(Contact *phoneBook, int num)
 	}
 }
 
-int Contact::counter = 0;
-
 int		main()
 {
 	Contact		phoneBook[8];
 	int			i = 0;
 	std::string cmd;
 
+	std::cout << "Usage : ADD, SEARCH or EXIT" << std::endl;
 	while (1)
 	{
 		std::cout << ">> ";
@@ -85,7 +84,10 @@ int		main()
 		else if (cmd.compare("ADD") == 0)
 		{
 			if (i < 8)
-				phoneBook[i++].create();
+			{
+				phoneBook[i].create(i);
+				i++;
+			}
 			else
 				std::cout << "No more storage." << std::endl;
 		}
