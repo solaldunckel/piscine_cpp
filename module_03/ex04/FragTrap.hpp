@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/26 09:40:24 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/17 12:40:39 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/06/17 15:13:50 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 # include <iostream>
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 	public:
-		ScavTrap(std::string name);
-		~ScavTrap();
-		ScavTrap(const ScavTrap &copy);
-		ScavTrap &operator=(const ScavTrap &copy);
+		FragTrap(std::string name);
+		~FragTrap();
+		FragTrap(const FragTrap &copy);
+		FragTrap &operator=(const FragTrap &copy);
 
-		void challengeNewcomer(std::string const &target);
+		std::string	getName() const;
+
+		void vaulthunter_dot_exe(std::string const &target);
 };
 
 #endif

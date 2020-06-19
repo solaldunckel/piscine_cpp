@@ -6,28 +6,21 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/26 09:40:24 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/04/02 14:25:58 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/06/17 13:35:04 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name)
+FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 100, 100, 1, 30, 20, 5)
 {
-	_hp = 100;
-	_maxHp = 100;
-	_energy = 100;
-	_maxEnergy = 100;
-	_level = 1;
-	_meleeDamage = 30;
-	_rangedDamage = 25;
-	_armorReduction = 5;
-	std::cout << _name << " has appeared.." << std::endl;
+	std::srand(std::time(0));
+	std::cout << "FragTrap constructor called!" << std::endl;
 }
 
 FragTrap::~FragTrap()
 {
-	std::cout << _name << " is dead.." << std::endl;
+	std::cout << "FragTrap destructor called!" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap &copy) : ClapTrap(copy)
@@ -37,13 +30,16 @@ FragTrap::FragTrap(const FragTrap &copy) : ClapTrap(copy)
 
 FragTrap	&FragTrap::operator=(const FragTrap &copy)
 {
-	(void)copy;
+	_name = copy._name;
+	_hp = copy._hp;
+	_maxHp = copy._maxHp;
+	_energy = copy._energy;
+	_maxEnergy = copy._maxEnergy;
+	_level = copy._level;
+	_meleeDamage = copy._meleeDamage;
+	_rangedDamage = copy._rangedDamage;
+	_armorReduction = copy._armorReduction;
 	return (*this);
-}
-
-std::string	FragTrap::getName() const
-{
-	return (_name);
 }
 
 void	FragTrap::vaulthunter_dot_exe(std::string const &target)
@@ -59,14 +55,14 @@ void	FragTrap::vaulthunter_dot_exe(std::string const &target)
 	int			numberOfAttacks = 5;
 	int			i;
 
-	if (_energy < 25)
+	if (this->_energy < 25)
 	{
 		std::cout << "Not enough energy (requires 25)" << std::endl;
 		return ;
 	}
 	i = rand() % numberOfAttacks;
-	_energy -= 25;
-	std::cout << "FR4G-TP " << _name << " used " << attacks[i]
+	this->_energy -= 25;
+	std::cout << "FR4G-TP " << this->_name << " used " << attacks[i]
 		<< " attack on " << target << " causing " << attacksDmg[i] << " damage !"
 		<< std::endl;
 }

@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   SuperTrap.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/26 09:40:24 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/17 12:40:39 by sdunckel         ###   ########.fr       */
+/*   Created: 2020/06/15 15:58:28 by sdunckel          #+#    #+#             */
+/*   Updated: 2020/06/17 16:11:41 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef SUPERTRAP_HPP
+# define SUPERTRAP_HPP
 
 # include <iostream>
 # include "ClapTrap.hpp"
+# include "FragTrap.hpp"
+# include "ScavTrap.hpp"
+# include "NinjaTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class SuperTrap: public FragTrap, public NinjaTrap
 {
 	public:
-		ScavTrap(std::string name);
-		~ScavTrap();
-		ScavTrap(const ScavTrap &copy);
-		ScavTrap &operator=(const ScavTrap &copy);
+		SuperTrap(std::string name);
+		~SuperTrap();
 
-		void challengeNewcomer(std::string const &target);
+		SuperTrap(const SuperTrap &copy);
+		SuperTrap &operator=(const SuperTrap &copy);
 };
 
 #endif

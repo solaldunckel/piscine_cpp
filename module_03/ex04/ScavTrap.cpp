@@ -6,15 +6,13 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/26 09:40:24 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/17 13:04:30 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/06/17 15:13:15 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(std::string name) : _name(name), _hp(100), _maxHp(100),
-	_energy(50), _maxEnergy(50), _level(1), _meleeDamage(20), _rangedDamage(15),
-	_armorReduction(3)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 100, 50, 50, 1, 20, 15, 3)
 {
 	std::srand(std::time(0));
 	std::cout << "ScavTrap constructor called!" << std::endl;
@@ -25,9 +23,14 @@ ScavTrap::~ScavTrap()
 	std::cout << "ScavTrap deconstructor called!" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &copy)
+ScavTrap::ScavTrap(const ScavTrap &copy) : ClapTrap(copy)
 {
 	*this = copy;
+}
+
+std::string	ScavTrap::getName() const
+{
+	return (_name);
 }
 
 ScavTrap	&ScavTrap::operator=(const ScavTrap &copy)
@@ -42,43 +45,6 @@ ScavTrap	&ScavTrap::operator=(const ScavTrap &copy)
 	_rangedDamage = copy._rangedDamage;
 	_armorReduction = copy._armorReduction;
 	return (*this);
-}
-
-void	ScavTrap::rangedAttack(std::string const &target)
-{
-	std::cout << "SC4V-TP " << this->_name << " attacks " << target
-		<< " at range, causing " << this->_rangedDamage
-		<< " points of damage!" << std::endl;
-}
-
-void	ScavTrap::meleedAttack(std::string const &target)
-{
-	std::cout << "SC4V-TP " << this->_name << " attacks " << target
-		<< " in melee, causing " << this->_meleeDamage
-		<< " points of damage!" << std::endl;
-}
-
-void	ScavTrap::takeDamage(unsigned int amount)
-{
-	unsigned int	damage = amount - this->_armorReduction;
-
-	if (damage < this->_hp)
-		this->_hp = this->_hp - damage;
-	else
-		this->_hp = 0;
-	std::cout << "SC4V-TP " << this->_name << " took " << damage
-		<< " damage! (" << this->_hp << " hp remaining)" << std::endl;
-}
-
-void	ScavTrap::beRepaired(unsigned int amount)
-{
-	unsigned int	repaired = amount;
-
-	if (this->_hp + repaired > this->_maxHp)
-		repaired = this->_maxHp - this->_hp;
-	this->_hp += repaired;
-	std::cout << "SC4V-TP " << this->_name << " repaired " << repaired
-		<< " hp! (" << this->_hp << "/" << this->_maxHp << " hp)" << std::endl;
 }
 
 void	ScavTrap::challengeNewcomer(std::string const &target)

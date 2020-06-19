@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Enemy.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/26 09:40:24 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/17 12:40:39 by sdunckel         ###   ########.fr       */
+/*   Created: 2020/06/19 13:30:46 by sdunckel          #+#    #+#             */
+/*   Updated: 2020/06/19 16:17:50 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef ENEMY_HPP
+# define ENEMY_HPP
 
 # include <iostream>
-# include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class Enemy
 {
 	public:
-		ScavTrap(std::string name);
-		~ScavTrap();
-		ScavTrap(const ScavTrap &copy);
-		ScavTrap &operator=(const ScavTrap &copy);
+		// Constructors & Deconstructors
+		Enemy();
+		Enemy(int hp, std::string const &type);
+		Enemy(const Enemy &copy);
+		virtual ~Enemy();
 
-		void challengeNewcomer(std::string const &target);
+		// Operators
+		Enemy &operator=(const Enemy &copy);
+
+		int 			getHP() const;
+		virtual void	takeDamage(int damage);
+
+	// protected:
+		int			_hp;
+		std::string	_type;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/26 09:40:24 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/27 15:21:56 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/06/17 12:40:24 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@
 # include <iostream>
 # include "ClapTrap.hpp"
 
-class FragTrap: public ClapTrap
+class FragTrap : public ClapTrap
 {
-	private:
-
 	public:
 		FragTrap(std::string name);
 		~FragTrap();

@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/26 09:40:24 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/27 14:54:11 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/06/17 12:22:15 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,13 @@ FragTrap::FragTrap(std::string name) : _name(name), _hp(100), _maxHp(100),
 	_energy(100), _maxEnergy(100), _level(1), _meleeDamage(30), _rangedDamage(20),
 	_armorReduction(5)
 {
-	(void)_energy;
-	(void)_level;
-	(void)_maxEnergy;
-	std::cout << this->_name << " has appeared.." << std::endl;
+	std::srand(std::time(0));
+	std::cout << "FragTrap constructor called!" << std::endl;
 }
 
 FragTrap::~FragTrap()
 {
-	std::cout << this->_name << " is dead.." << std::endl;
+	std::cout << "FragTrap destructor called!" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap &copy)
@@ -34,7 +32,15 @@ FragTrap::FragTrap(const FragTrap &copy)
 
 FragTrap	&FragTrap::operator=(const FragTrap &copy)
 {
-	(void)copy;
+	_name = copy._name;
+	_hp = copy._hp;
+	_maxHp = copy._maxHp;
+	_energy = copy._energy;
+	_maxEnergy = copy._maxEnergy;
+	_level = copy._level;
+	_meleeDamage = copy._meleeDamage;
+	_rangedDamage = copy._rangedDamage;
+	_armorReduction = copy._armorReduction;
 	return (*this);
 }
 

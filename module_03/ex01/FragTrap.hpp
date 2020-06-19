@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/26 09:40:24 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/26 10:30:46 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/06/12 14:37:42 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@
 class FragTrap
 {
 	private:
-		std::string _name;
+		std::string		_name;
 		unsigned int	_hp;
 		unsigned int	_maxHp;
 		unsigned int	_energy;
 		unsigned int	_maxEnergy;
 		unsigned int	_level;
-		int	_meleeDamage;
-		int	_rangedDamage;
-		int	_armorReduction;
+		unsigned int	_meleeDamage;
+		unsigned int	_rangedDamage;
+		unsigned int	_armorReduction;
 	public:
 		FragTrap(std::string name);
 		~FragTrap();

@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   PowerFist.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/26 09:40:24 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/17 12:40:39 by sdunckel         ###   ########.fr       */
+/*   Created: 2020/06/19 13:30:46 by sdunckel          #+#    #+#             */
+/*   Updated: 2020/06/19 15:17:21 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef POWERFIST_HPP
+# define POWERFIST_HPP
 
 # include <iostream>
-# include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+# include "AWeapon.hpp"
+
+class PowerFist : public AWeapon
 {
 	public:
-		ScavTrap(std::string name);
-		~ScavTrap();
-		ScavTrap(const ScavTrap &copy);
-		ScavTrap &operator=(const ScavTrap &copy);
+		// Constructors & Deconstructors
+		PowerFist();
+		PowerFist(const PowerFist &copy);
+		~PowerFist();
 
-		void challengeNewcomer(std::string const &target);
+		// Operators
+		PowerFist &operator=(const PowerFist &copy);
+
+		void	attack() const;
+	private:
 };
 
 #endif
