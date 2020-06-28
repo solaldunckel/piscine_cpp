@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/18 01:29:44 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/18 01:34:06 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/06/28 10:38:04 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 void	memoryLeak()
 {
-	std::string *panther;
+	std::string	*panther = new std::string("String panther");
 
-	panther = new std::string("String panther");
 	std::cout << *panther << std::endl;
 	delete panther;
 }

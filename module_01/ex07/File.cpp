@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/22 19:41:14 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/19 16:44:54 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/06/28 11:55:09 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	File::sed(std::string search, std::string replace)
 {
 	std::stringstream	output;
 
-	if (!this->_file.is_open())
+	if (!this->_file.is_open() || !this->_file.good())
 		throw "cannot open file.";
 	else if (!search.length())
 		throw "s1 is empty.";

@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/22 22:59:24 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/22 23:44:33 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/06/28 11:53:32 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ Logger::Logger(std::string name) : _name(name)
 
 Logger::~Logger()
 {
-	this->_output.close();
+	if (this->_output.is_open())
+		this->_output.close();
 }
 
 void	Logger::logToConsole(std::string const str)

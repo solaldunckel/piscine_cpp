@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/19 01:17:42 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/19 01:46:33 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/06/28 11:05:04 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 ZombieHorde::ZombieHorde(int num) : _num(num)
 {
+	srand(time(0));
 	this->_horde = new Zombie[num];
 	for (int i = 0; i < this->_num; i++)
 	{
-		this->_horde[i].name = this->randomChump();
-		this->_horde[i].type = "Horde";
+		this->_horde[i]._name = this->randomChump();
+		this->_horde[i]._type = "Horde";
 	}
 }
 

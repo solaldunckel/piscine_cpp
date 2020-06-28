@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/14 19:22:20 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/18 01:28:56 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/06/28 10:37:06 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ int 	main()
 {
 	ponyOnTheStack();
 	ponyOnTheHeap();
-	return (1);
+	return (0);
 }

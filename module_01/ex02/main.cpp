@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/18 01:59:28 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/05/08 12:01:24 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/06/28 10:59:14 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,19 @@
 int		main(void)
 {
 	Zombie		*zombie;
-	Zombie		*zombie3;
-	Zombie		zombie2("Xavier Niel", "Supreme Leader");
 	ZombieEvent event("Noobies");
+	ZombieEvent event2;
 
-	zombie2.announce();
-	zombie = new Zombie("Solal", "Chief Leader");
+	zombie = event.newZombie("Solal");
 	zombie->announce();
-	delete zombie;
 
-	zombie = event.randomChump();
-
+	event2.setZombieType("TheDeads");
+	event2.randomChump();
+	
+	event.randomChump();
 	event.setZombieType("Looser");
-	zombie3 = event.randomChump();
+	event.randomChump();
 
-	delete zombie3;
 	delete zombie;
 	return (0);
 }

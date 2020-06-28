@@ -6,7 +6,7 @@
 #    By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/06 18:09:59 by sdunckel          #+#    #+#              #
-#    Updated: 2020/03/22 19:47:36 by sdunckel         ###   ########.fr        #
+#    Updated: 2020/06/28 11:42:24 by sdunckel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,16 +16,22 @@ SRCS			= \
 					replace.cpp \
 					File.cpp
 
+OBJS			= ${SRCS:.cpp=.o}
+
 CC				= clang++
 CFLAGS 			= -Wall -Wextra -Werror
 RM				= rm -f
 
 all:			$(NAME)
 
-$(NAME):		$(SRCS)
-				$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
+$(NAME):		$(OBJS)
+				$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+%.o: %.cpp
+				${CC} ${CFLAGS} -o $@ -c $<
 
 clean:
+				${RM} ${OBJS}
 
 fclean:			clean
 				${RM} ${NAME}

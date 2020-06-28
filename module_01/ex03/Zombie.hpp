@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/18 01:34:35 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/19 01:44:40 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/06/28 11:05:26 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@
 
 class Zombie
 {
-	private:
 	public:
-		std::string		type;
-		std::string		name;
+		std::string		_type;
+		std::string		_name;
 		Zombie();
 		~Zombie();
 		void	announce();
