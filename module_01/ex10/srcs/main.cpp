@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/22 23:46:29 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/23 00:34:46 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/06/28 17:58:24 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int fd_is_valid(int fd)
 
 int		main(int argc, char **argv)
 {
+	int	ret = 0;
+
 	if (argc == 1)
 	{
 		if (fd_is_valid(0))
@@ -34,9 +36,9 @@ int		main(int argc, char **argv)
 			File	*file;
 
 			file = new File(argv[i]);
-			file->read();
+			ret = file->read();
 			delete file;
 		}
 	}
-	return (0);
+	return (ret);
 }

@@ -6,7 +6,7 @@
 #    By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/06 18:09:59 by sdunckel          #+#    #+#              #
-#    Updated: 2020/03/23 04:07:39 by sdunckel         ###   ########.fr        #
+#    Updated: 2020/06/28 18:03:23 by sdunckel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ $(NAME):		$(OBJS)
 				$(CC) $(CFLAGS) -I $(HEADER) $(OBJS) -o $(NAME)
 
 clean:
+				rm -f $(OBJS)
 
 fclean:			clean
 				${RM} ${NAME}

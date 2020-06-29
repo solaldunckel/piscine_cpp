@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 18:39:36 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/26 20:22:19 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/06/28 14:50:48 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ AssaultTerminator::AssaultTerminator(const AssaultTerminator &copy)
 
 AssaultTerminator	&AssaultTerminator::operator=(const AssaultTerminator &copy)
 {
+	(void)copy;
 	return (*this);
 }
 

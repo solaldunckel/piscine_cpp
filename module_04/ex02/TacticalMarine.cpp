@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 18:39:36 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/26 20:24:26 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/06/28 14:50:44 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ TacticalMarine::TacticalMarine(const TacticalMarine &copy)
 
 TacticalMarine	&TacticalMarine::operator=(const TacticalMarine &copy)
 {
+	(void)copy;
 	return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 18:39:36 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/26 20:16:16 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/06/29 09:34:47 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,11 @@ Squad::Squad()
 
 Squad::~Squad()
 {
-	int		i = 0;
-
-	std::cout << _count << std::endl;
-	while (i < _count)
-	{
-		delete _units[i];
-		i++;
-	}
-	delete _units;
+	this->deleteUnits();
 }
 
 Squad::Squad(const Squad &copy)
 {
-	int		i = 0;
-
-	std::cout << _count << std::endl;
-	while (i < _count)
-	{
-		delete _units[i];
-		i++;
-	}
-	delete _units;
 	*this = copy;
 }
 
@@ -55,8 +38,10 @@ Squad::Squad(const Squad &copy)
 
 Squad	&Squad::operator=(const Squad &copy)
 {
+	printf("operator\n");
 	_count = copy._count;
-	_units = copy._units;
+	this->deleteUnits();
+	this->copyUnits(copy);
 	return (*this);
 }
 
@@ -71,9 +56,19 @@ int				Squad::getCount() const
 
 ISpaceMarine*	Squad::getUnit(int id) const
 {
-	if (_units[id])
-		return _units[id];
-	return (NULL);
+	int		count = 0;
+	t_list	*tmp = _units;
+
+	if (!tmp)
+		return NULL;
+	while (tmp)
+	{
+		if (count == id)
+			break;
+		count++;
+		tmp = tmp->next;
+	}
+	return tmp->unit;
 }
 
 int				Squad::push(ISpaceMarine *unit)
@@ -81,29 +76,67 @@ int				Squad::push(ISpaceMarine *unit)
 	if (!unit)
 		return _count;
 
-	int		i = 0;
+	t_list	*tmp = _units;
 
-	while (i < _count)
+	if (tmp)
 	{
-		if (unit == _units[i])
-			return _count;
-		i++;
+		while (tmp->next)
+		{
+			if (tmp->unit == unit || tmp->next->unit == unit)
+				return _count;
+			tmp = tmp->next;
+		}
+		tmp->next = new t_list;
+		tmp->next->unit = unit;
+		tmp->next->next = NULL;
 	}
-
-	ISpaceMarine	**newUnits = new ISpaceMarine*[_count + 1];
-
-	i = 0;
-	while (i < _count)
+	else
 	{
-		newUnits[i] = _units[i];
-		i++;
+		_units = new t_list;
+		_units->unit = unit;
+		_units->next = NULL;
 	}
-	newUnits[i] = unit;
-
-	if (_units)
-		delete [] _units;
-
-	_units = newUnits;
 	_count++;
 	return _count;
+}
+
+void			Squad::deleteUnits()
+{
+	t_list	*tmp = _units;
+	t_list	*tmp2;
+
+	while (tmp)
+	{
+		tmp2 = tmp->next;
+		delete tmp->unit;
+		delete tmp;
+		tmp = tmp2;
+	}
+}
+
+void			Squad::copyUnits(const Squad &copy)
+{
+	t_list	*begin = NULL;
+	t_list	*tmp = copy._units;
+	t_list	*tmp2 = NULL;
+
+	while (tmp)
+	{
+		if (!begin)
+		{
+			begin = new t_list;
+			begin->unit = tmp->unit->clone();
+			begin->next = NULL;
+			tmp2 = begin;
+		}
+		else
+		{
+			tmp2->next = new t_list;
+			tmp2 = tmp2->next;
+			tmp2->unit = tmp->unit->clone();
+			tmp2->next = NULL;
+		}
+		tmp = tmp->next;
+	}
+	_units = begin;
 }

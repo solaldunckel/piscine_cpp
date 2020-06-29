@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/22 19:41:14 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/28 13:06:36 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/06/28 17:58:28 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,23 @@
 # include <sstream>
 # include <cstring>
 
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
+# include <unistd.h>
+
 class File
 {
 	private:
 		std::ifstream	_file;
 		std::string		_filename;
+		bool			_isdir;
 	public:
 		File(char *file);
 		~File();
 		static void			readStdin();
 		void				error();
-		void				read();
+		int					read();
 };
 
 #endif
