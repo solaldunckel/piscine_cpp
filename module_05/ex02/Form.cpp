@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/01 10:32:42 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/07/01 13:52:06 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/01 17:01:46 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,10 @@ const char *Form::GradeTooLowException::what() const throw() {
   return "grade too low";
 }
 
+const char *Form::NotSigned::what() const throw() {
+  return "form not signed";
+}
+
 std::string Form::getName() const {
   return name_;
 }
@@ -80,6 +84,24 @@ void Form::beSigned(const Bureaucrat &b) {
   }
   else
     signed_ = true;
+}
+
+void Form::execute(const Bureaucrat &b) const {
+  if (b.getGrade() > grade_required_) {
+    throw Form::GradeTooLowException();
+  } else if (signed_ == false) {
+    throw Form::NotSigned();
+  }
+  else
+    this->action();
+}
+
+void Form::setTarget(std::string &target) {
+  target_ = target;
+}
+
+std::string Form::getTarget() const {
+  return target_;
 }
 
 std::ostream &operator<<(std::ostream &out, Form const &in) {
