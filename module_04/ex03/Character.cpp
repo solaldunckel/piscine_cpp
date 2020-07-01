@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 11:22:45 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/29 13:13:57 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/06/29 17:16:55 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ Character::Character(const Character &copy)
 
 Character	&Character::operator=(const Character &copy)
 {
+	(void)copy;
 	return (*this);
 }
 
@@ -62,14 +63,17 @@ void				Character::equip(AMateria *m)
 		if (!_inventory[i])
 		{
 			_inventory[i] = m;
-			printf("equiped in slot %d\n", i);
 			return ;
 		}
 	}
 }
 
 void				Character::unequip(int idx)
-{}
+{
+	if (idx >= _maxInventorySize || !_inventory[idx])
+		return ;
+	this->_inventory[idx] = NULL;
+}
 
 void				Character::use(int idx, ICharacter &target)
 {

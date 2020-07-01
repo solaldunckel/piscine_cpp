@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 11:22:45 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/29 12:39:47 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/06/30 16:28:34 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ AMateria::AMateria()
 {
 	_xp = 0;
 }
+
+AMateria::AMateria()
+{}
 
 AMateria::AMateria(std::string const &type)
 {
@@ -40,6 +43,7 @@ AMateria::AMateria(const AMateria &copy)
 
 AMateria	&AMateria::operator=(const AMateria &copy)
 {
+	_xp = copy.getXP();
 	return (*this);
 }
 
@@ -59,5 +63,6 @@ unsigned int		AMateria::getXP() const
 
 void				AMateria::use(ICharacter& target)
 {
+	(void)target;
 	_xp += 10;
 }

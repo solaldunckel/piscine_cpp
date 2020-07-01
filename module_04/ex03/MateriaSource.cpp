@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 11:22:45 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/29 13:15:37 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/06/29 17:09:16 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ MateriaSource::MateriaSource(const MateriaSource &copy)
 
 MateriaSource	&MateriaSource::operator=(const MateriaSource &copy)
 {
+	(void)copy;
 	return (*this);
 }
 

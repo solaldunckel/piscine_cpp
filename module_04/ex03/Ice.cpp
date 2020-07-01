@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 11:22:45 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/29 13:17:01 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/06/29 17:18:42 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ Ice::Ice(const Ice &copy)
 
 Ice	&Ice::operator=(const Ice &copy)
 {
-	// _xp = copy._xp;
+	(void)copy;
+	// _xp = copy.getXP();
 	return (*this);
 }
 
@@ -51,4 +52,5 @@ AMateria*	Ice::clone() const
 void	Ice::use(ICharacter &target)
 {
 	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+	AMateria::use(target);
 }
