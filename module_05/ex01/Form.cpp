@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/01 10:32:42 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/07/01 11:33:31 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/01 11:56:15 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,12 @@ int Form::gradeToSign() const {
   return grade_to_sign_;
 }
 
-void Form::beSigned(Bureaucrat *b) {
-  if (b->getGrade() > grade_to_sign_) {
+void Form::beSigned(const Bureaucrat &b) {
+  if (b.getGrade() > grade_to_sign_) {
     throw Form::GradeTooLowException();
   }
-  signed_ = true;
+  else
+    signed_ = true;
 }
 
 std::ostream &operator<<(std::ostream &out, Form const &in) {

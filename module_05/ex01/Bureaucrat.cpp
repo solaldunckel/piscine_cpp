@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 21:58:36 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/07/01 11:31:03 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/01 11:57:58 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void Bureaucrat::Relegate() {
 
 void Bureaucrat::signForm(Form &form) {
   try {
-    form.beSigned(this);
+    form.beSigned(*this);
     std::cout << name_ << " signs " << form.getName() << std::endl;
   }
   catch (std::exception &e) {

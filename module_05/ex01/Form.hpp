@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/01 10:32:42 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/07/01 11:17:53 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/01 11:55:18 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FORM_HPP
 
 # include <iostream>
+# include <string>
 
 class Bureaucrat ;
 
@@ -33,7 +34,7 @@ class Form {
   bool isSigned();
   int gradeRequired() const;
   int gradeToSign() const;
-  void beSigned(Bureaucrat *b);
+  void beSigned(const Bureaucrat &b);
 
   class GradeTooHighException : public std::exception {
    public:

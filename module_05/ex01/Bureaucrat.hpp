@@ -6,17 +6,19 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 21:58:36 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/07/01 11:30:25 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/01 11:58:00 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
-# include "Form.hpp"
-
 # include <iostream>
 # include <stdexcept>
+# include <string>
+
+# include "Form.hpp"
+
 
 class Bureaucrat {
  public:
