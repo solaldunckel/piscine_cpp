@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/23 09:12:21 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/26 09:00:23 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/08 14:30:26 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,14 @@ int		main(void)
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << Fixed::max(a, b) << std::endl;
+
+  std::cout << Fixed::min(a, b) << std::endl;
+  std::cout << a * b << std::endl;
+  std::cout << a + b << std::endl;
+  std::cout << b / a << std::endl;
+  std::cout << (a == b) << std::endl;
+  std::cout << (a != b) << std::endl;
+  std::cout << (a > b) << std::endl;
+  std::cout << (a < b) << std::endl;
 	return 0;
 }

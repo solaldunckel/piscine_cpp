@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/23 09:09:13 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/26 09:26:53 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/08 14:30:47 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,10 @@ class Fixed
 };
 
 std::ostream	&operator<<(std::ostream &out, Fixed const &value);
+
+const Fixed		&min(const Fixed &a, const Fixed &b);
+const Fixed		&max(const Fixed &a, const Fixed &b);
+Fixed			&min(Fixed &a, Fixed &b);
+Fixed			&max(Fixed &a, Fixed &b);
 
 #endif
