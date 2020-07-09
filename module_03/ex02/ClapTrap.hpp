@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/27 15:05:02 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/07/09 16:37:44 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/09 17:16:00 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CLAPTRAP_HPP
 
 # include <iostream>
+# include <ctime>
 
 class ClapTrap
 {

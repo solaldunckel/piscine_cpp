@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/26 09:59:51 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/07/09 15:49:08 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/09 17:22:15 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,9 @@ int		main(void)
 	ninja.ninjaShoebox(ninja2);
 	ninja.ninjaShoebox(frag);
 	ninja.ninjaShoebox(scav);
+  ninja.rangedAttack("Teha");
+	ninja.meleeAttack("Zephyr");
+	ninja.takeDamage(23);
+	ninja.takeDamage(150);
 	return (0);
 }
