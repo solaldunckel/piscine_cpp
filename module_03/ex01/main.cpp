@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/26 09:59:51 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/03/27 15:03:02 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/09 16:50:33 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@ int		main(void)
 	FragTrap	first("Solal");
 	ScavTrap	second("Teha");
 
+  ScavTrap  third(second);
+
 	first.rangedAttack("Teha");
-	first.meleedAttack("Zephyr");
+	first.meleeAttack("Zephyr");
 	first.takeDamage(23);
 	first.takeDamage(150);
 	first.beRepaired(30);
@@ -31,7 +33,7 @@ int		main(void)
 	first.vaulthunter_dot_exe("Sylvanas");
 	first.vaulthunter_dot_exe("Vol'jin");
 	second.rangedAttack("Solal");
-	second.meleedAttack("Zephyr");
+	second.meleeAttack("Zephyr");
 	second.takeDamage(18);
 	second.takeDamage(55);
 	second.beRepaired(12);
@@ -40,5 +42,8 @@ int		main(void)
 	second.challengeNewcomer("Boris Johnson");
 	second.challengeNewcomer("Donald Trump");
 	second.challengeNewcomer("Macron");
+
+  third.challengeNewcomer("Xavier");
+  
 	return (0);
 }

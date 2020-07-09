@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/26 09:59:51 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/04/02 12:03:48 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/09 15:49:08 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 
 int		main(void)
 {
-	NinjaTrap	ninja("Ninja");
-	NinjaTrap	ninja2("Ninja2");
+	NinjaTrap	ninja("Hattori Hanzo");
+	NinjaTrap	ninja2("Fujibayashi Nagato");
 	FragTrap	frag("FRAG");
 	ScavTrap	scav("SCAV");
 

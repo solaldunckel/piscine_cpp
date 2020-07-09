@@ -6,17 +6,20 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/27 15:05:02 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/17 12:46:20 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/09 16:42:52 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap() {
+}
+
 ClapTrap::ClapTrap(std::string name, int hp, int maxHp, int energy, int maxEnergy,
-	int level, int meleeDamage, int rangedDamage, int armorReduction)
+	int level, int meleeDamage, int rangedDamage, int armorReduction, std::string type)
 {
 	std::srand(std::time(0));
-	std::cout << "ClapTrap constructor called!" << std::endl;
+	std::cout << "* CL4P-TP built! *" << std::endl;
 	_name = name;
 	_hp = hp;
 	_maxHp = maxHp;
@@ -26,11 +29,12 @@ ClapTrap::ClapTrap(std::string name, int hp, int maxHp, int energy, int maxEnerg
 	_meleeDamage = meleeDamage;
 	_rangedDamage = rangedDamage;
 	_armorReduction = armorReduction;
+  _type = type;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "ClapTrap destructor called!" << std::endl;
+	std::cout << "* CL4P-TP annhilated! *" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &copy)
@@ -49,21 +53,8 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &copy)
 	_meleeDamage = copy._meleeDamage;
 	_rangedDamage = copy._rangedDamage;
 	_armorReduction = copy._armorReduction;
+  _type = copy._type;
 	return (*this);
-}
-
-void	ClapTrap::rangedAttack(std::string const &target)
-{
-	std::cout << _name << " attacks " << target
-		<< " at range, causing " << _rangedDamage
-		<< " points of damage!" << std::endl;
-}
-
-void	ClapTrap::meleedAttack(std::string const &target)
-{
-	std::cout << _name << " attacks " << target
-		<< " in melee, causing " << _meleeDamage
-		<< " points of damage!" << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
@@ -74,8 +65,8 @@ void	ClapTrap::takeDamage(unsigned int amount)
 		_hp = _hp - damage;
 	else
 		_hp = 0;
-	std::cout << _name << " took " << damage
-		<< " damage! (" << _hp << " hp remaining)" << std::endl;
+  std::cout << "Why do I even feel pain?! - <CL4P-TP> " << this->_name << " took " << damage
+  << " damage! (" << this->_hp << " hp remaining)" << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
@@ -85,6 +76,6 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	if (_hp + repaired > _maxHp)
 		repaired = _maxHp - _hp;
 	_hp += repaired;
-	std::cout << _name << " repaired " << repaired
-		<< " hp! (" << _hp << "/" << _maxHp << " hp)" << std::endl;
+  std::cout << "I found health! - <CL4P-TP> " << this->_name << " repaired " << repaired
+		<< " hp! (" << this->_hp << "/" << this->_maxHp << " hp)" << std::endl;
 }

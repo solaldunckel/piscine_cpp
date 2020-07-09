@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/15 15:58:28 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/17 16:11:41 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/09 16:48:52 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ class SuperTrap: public FragTrap, public NinjaTrap
 
 		SuperTrap(const SuperTrap &copy);
 		SuperTrap &operator=(const SuperTrap &copy);
+
+    void rangedAttack(std::string const &target);
+    void meleeAttack(std::string const &target);
 };
 
 #endif

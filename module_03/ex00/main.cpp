@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/26 09:59:51 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/17 12:29:25 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/09 16:50:40 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		main(void)
 
 	teha.rangedAttack("Trump");
 	teha = solal;
-	solal.meleedAttack("Zephyr");
+	solal.meleeAttack("Zephyr");
 	solal.takeDamage(23);
 	teha.takeDamage(24);
 	clone.takeDamage(25);

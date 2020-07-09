@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/26 09:40:24 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/17 12:40:24 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/09 16:43:40 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,22 @@
 # define FRAGTRAP_HPP
 
 # include <iostream>
+
 # include "ClapTrap.hpp"
 
 class FragTrap : public ClapTrap
 {
 	public:
+    FragTrap();
 		FragTrap(std::string name);
 		~FragTrap();
 		FragTrap(const FragTrap &copy);
 		FragTrap &operator=(const FragTrap &copy);
 
 		void vaulthunter_dot_exe(std::string const &target);
+    std::string getName() const;
+    void rangedAttack(std::string const &target);
+    void meleeAttack(std::string const &target);
 };
 
 #endif

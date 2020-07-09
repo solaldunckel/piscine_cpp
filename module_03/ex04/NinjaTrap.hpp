@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/02 11:38:28 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/17 15:09:38 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/09 16:47:49 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,8 @@
 
 class NinjaTrap : virtual public ClapTrap
 {
-	private:
-
 	public:
+    NinjaTrap();
 		NinjaTrap(std::string name);
 		~NinjaTrap();
 		NinjaTrap(const NinjaTrap &copy);
@@ -30,6 +29,8 @@ class NinjaTrap : virtual public ClapTrap
 
 		std::string	getName() const;
 
+    void rangedAttack(std::string const &target);
+    void meleeAttack(std::string const &target);
 		void ninjaShoebox(const FragTrap &target);
 		void ninjaShoebox(const ScavTrap &target);
 		void ninjaShoebox(const NinjaTrap &target);
