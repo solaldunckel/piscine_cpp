@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/19 13:30:46 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/19 15:21:38 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/11 17:06:17 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 */
 
 AWeapon::AWeapon()
-{}
+{
+}
 
 AWeapon::AWeapon(std::string const &name, int apcost, int damage)
 {

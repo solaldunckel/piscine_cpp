@@ -6,14 +6,11 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/17 16:13:24 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/17 16:50:43 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/10 15:24:09 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Victim.hpp"
-
-Victim::Victim()
-{}
 
 Victim::Victim(std::string name) : _name(name)
 {
@@ -34,13 +31,18 @@ Victim::Victim(const Victim &copy)
 
 Victim	&Victim::operator=(const Victim &copy)
 {
-	(void)copy;
+	_name = copy.getName();
 	return (*this);
 }
 
 std::string	Victim::getName() const
 {
 	return (_name);
+}
+
+void	Victim::setName(std::string name)
+{
+	_name = name;
 }
 
 void	Victim::getPolymorphed() const

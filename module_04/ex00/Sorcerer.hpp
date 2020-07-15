@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/17 16:13:24 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/17 16:38:44 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/10 15:04:30 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ class Sorcerer {
 	private:
 		std::string	_name;
 		std::string	_title;
+    Sorcerer();
+
 	public:
-		Sorcerer();
 		Sorcerer(std::string name, std::string title);
 		~Sorcerer();
 

@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/19 13:32:38 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/19 15:34:49 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/11 15:16:01 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class SuperMutant : public Enemy
 		// Constructors & Deconstructors
 		SuperMutant();
 		SuperMutant(const SuperMutant &copy);
-		~SuperMutant();
+		virtual ~SuperMutant();
 
 		// Operators
 		SuperMutant &operator=(const SuperMutant &copy);

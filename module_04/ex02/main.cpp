@@ -13,7 +13,6 @@ int main()
 
 	vlc->push(bob);
 	vlc->push(jim);
-	// vlc->push(jim);
 	vlc->push(NULL);
 
 	*vlc2 = *vlc;
@@ -27,8 +26,10 @@ int main()
 		cur->rangedAttack();
 		cur->meleeAttack();
 	}
+  vlc->getUnit(3);
+  vlc->getUnit(8);
 	delete vlc;
-	// delete empty;
+
 	std::cout << vlc2->getCount() << " marines" << std::endl;
 
 	for (int i = 0; i < vlc2->getCount(); ++i)
@@ -39,6 +40,5 @@ int main()
 		cur->meleeAttack();
 	}
 	delete vlc2;
-	while (1);
 	return 0;
 }

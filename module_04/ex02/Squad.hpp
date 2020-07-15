@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 18:39:36 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/28 18:30:34 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/11 17:00:00 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ class Squad : public ISquad
 		int				push(ISpaceMarine*);
 		void			deleteUnits();
 		void			copyUnits(const Squad &copy);
+
 	private:
 		typedef struct	s_list
 		{

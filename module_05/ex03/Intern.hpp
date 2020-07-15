@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 11:27:55 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/07/02 12:02:29 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/15 18:22:59 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class Intern {
   Form *Robotomy(std::string const &target);
   Form *Shrubbery(std::string const &target);
   Form *Presidential(std::string const &target);
-  
+
   Form *makeForm(std::string const &form, std::string const &target);
 };
 

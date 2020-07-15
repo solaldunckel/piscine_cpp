@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 11:22:45 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/29 17:18:48 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/12 16:30:13 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,12 @@
 
 Cure::Cure() : AMateria("cure")
 {
-	// _type = "cure";
 }
 
 Cure::~Cure()
 {}
 
-Cure::Cure(const Cure &copy)
+Cure::Cure(const Cure &copy) : AMateria("cure")
 {
 	*this = copy;
 }
@@ -35,7 +34,7 @@ Cure::Cure(const Cure &copy)
 
 Cure	&Cure::operator=(const Cure &copy)
 {
-	(void)copy;
+	_xp = copy.getXP();
 	return (*this);
 }
 
@@ -45,7 +44,8 @@ Cure	&Cure::operator=(const Cure &copy)
 
 AMateria*	Cure::clone() const
 {
-	return (new Cure);
+  Cure *clone = new Cure(*this);
+	return (clone);
 }
 
 

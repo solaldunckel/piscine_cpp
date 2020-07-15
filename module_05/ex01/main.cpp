@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/01 10:32:42 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/07/01 11:33:42 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/12 22:02:47 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ int main() {
 		std::cout << "error : " << e.what() << std::endl;
 	}
 
-	Form		f24b("24B", 24, 1);
+	Form		f24b("24B", 1, 24);
 	Bureaucrat	john("John", 10);
 	Bureaucrat	mike("Mike", 50);
 
 	std::cout << f24b << std::endl;
 	mike.signForm(f24b);
-	std::cout << f24b << std::endl;
 	john.signForm(f24b);
-	std::cout << f24b << std::endl;
+  std::cout << f24b << std::endl;
+  john.signForm(f24b);
 	return (0);
 }

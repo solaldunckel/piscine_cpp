@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 11:22:45 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/29 17:18:42 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/12 16:29:58 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Ice::Ice() : AMateria("ice")
 Ice::~Ice()
 {}
 
-Ice::Ice(const Ice &copy)
+Ice::Ice(const Ice &copy) : AMateria("ice")
 {
 	*this = copy;
 }
@@ -34,8 +34,7 @@ Ice::Ice(const Ice &copy)
 
 Ice	&Ice::operator=(const Ice &copy)
 {
-	(void)copy;
-	// _xp = copy.getXP();
+	_xp = copy.getXP();
 	return (*this);
 }
 
@@ -45,7 +44,8 @@ Ice	&Ice::operator=(const Ice &copy)
 
 AMateria*	Ice::clone() const
 {
-	return (new Ice);
+  Ice *clone = new Ice(*this);
+	return (clone);
 }
 
 

@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/19 13:30:46 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/19 15:22:21 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/10 16:21:25 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ class AWeapon
 {
 	public:
 		// Constructors & Deconstructors
-		AWeapon();
+    AWeapon();
 		AWeapon(std::string const &name, int apcost, int damage);
 		AWeapon(const AWeapon &copy);
-		~AWeapon();
+		virtual ~AWeapon();
 
 		// Operators
 		AWeapon &operator=(const AWeapon &copy);

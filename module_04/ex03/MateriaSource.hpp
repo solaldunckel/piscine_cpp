@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 11:22:45 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/29 13:15:21 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/11 16:19:19 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class MateriaSource : public IMateriaSource
 		// Constructors & Deconstructors
 		MateriaSource();
 		MateriaSource(const MateriaSource &copy);
-		~MateriaSource();
+		virtual ~MateriaSource();
 
 		// Operators
 		MateriaSource &operator=(const MateriaSource &copy);
@@ -32,6 +32,7 @@ class MateriaSource : public IMateriaSource
 		// Functions
 		void		learnMateria(AMateria *m);
 		AMateria	*createMateria(std::string const &type);
+
 	private:
 		AMateria			*_materias[4];
 		static const int	_maxMateria = 4;

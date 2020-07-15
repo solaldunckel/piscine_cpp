@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 11:22:45 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/30 16:28:34 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/11 16:15:41 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,6 @@ AMateria::AMateria()
 {
 	_xp = 0;
 }
-
-AMateria::AMateria()
-{}
 
 AMateria::AMateria(std::string const &type)
 {

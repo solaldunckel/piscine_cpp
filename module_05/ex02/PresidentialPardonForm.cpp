@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/01 14:06:42 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/07/01 17:32:46 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/15 18:19:19 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target)
 PresidentialPardonForm::~PresidentialPardonForm() {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy) {
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy) : Form(copy) {
   *this = copy;
 }
 

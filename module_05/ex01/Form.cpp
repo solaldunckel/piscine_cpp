@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/01 10:32:42 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/07/01 13:52:06 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/15 18:27:05 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 /*
 ** Constructors & Deconstructors
 */
-
-Form::Form() : grade_required_(1), grade_to_sign_(1) {
-}
 
 Form::Form(std::string name, int grade_required, int grade_to_sign)
   : name_(name), grade_required_(grade_required), grade_to_sign_(grade_to_sign) {
@@ -32,7 +29,9 @@ Form::Form(std::string name, int grade_required, int grade_to_sign)
 Form::~Form() {
 }
 
-Form::Form(const Form &copy) : grade_required_(copy.gradeRequired()),
+Form::Form(const Form &copy) :  name_(copy.getName()),
+                                signed_(copy.isSigned()),
+                                grade_required_(copy.gradeRequired()),
                                 grade_to_sign_(copy.gradeToSign()) {
   *this = copy;
 }
@@ -58,11 +57,15 @@ const char *Form::GradeTooLowException::what() const throw() {
   return "grade too low";
 }
 
+const char *Form::AlreadySignedException::what() const throw() {
+  return "form is already signed";
+}
+
 std::string Form::getName() const {
   return name_;
 }
 
-bool Form::isSigned() {
+bool Form::isSigned() const {
   return signed_;
 }
 
@@ -78,13 +81,17 @@ void Form::beSigned(const Bureaucrat &b) {
   if (b.getGrade() > grade_to_sign_) {
     throw Form::GradeTooLowException();
   }
+  else if (signed_) {
+    throw Form::AlreadySignedException();
+  }
   else
     signed_ = true;
 }
 
 std::ostream &operator<<(std::ostream &out, Form const &in) {
-  return (out << in.getName() << " form - grade required : " << in.gradeRequired()
-    << " - grade to sign : " << in.gradeToSign());
+  return (out << in.getName() << " form - signed : " << in.isSigned()
+    << " - grade required : " << in.gradeRequired() << " - grade to sign : "
+    << in.gradeToSign());
 }
 
 

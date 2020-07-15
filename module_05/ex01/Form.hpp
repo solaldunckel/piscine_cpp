@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/01 10:32:42 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/07/01 11:55:18 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/12 22:01:44 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class Bureaucrat ;
 class Form {
  public:
   // Constructors & Deconstructors
-  Form();
   Form(std::string name, int grade_required, int grade_to_sign);
   Form(const Form &copy);
   ~Form();
@@ -31,7 +30,7 @@ class Form {
 
   // Functions
   std::string getName() const;
-  bool isSigned();
+  bool isSigned() const;
   int gradeRequired() const;
   int gradeToSign() const;
   void beSigned(const Bureaucrat &b);
@@ -46,7 +45,13 @@ class Form {
     const char *what() const throw();
   };
 
+  class AlreadySignedException : public std::exception {
+   public:
+    const char *what() const throw();
+  };
+
  private:
+  Form();
   const std::string name_;
   bool signed_;
   const int grade_required_;

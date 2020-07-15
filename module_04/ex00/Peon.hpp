@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/17 16:13:24 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/17 16:51:00 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/10 15:32:15 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@
 # include <iostream>
 # include "Victim.hpp"
 
-class Peon : public Victim{
-	private:
+class Peon : public Victim {
+  private:
+    Peon();
+
 	public:
-		Peon();
 		Peon(std::string name);
-		~Peon();
+		virtual ~Peon();
 
 		Peon(const Peon &copy);
 		Peon &operator=(const Peon &copy);

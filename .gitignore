@@ -3,6 +3,9 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=c++
 
 ### C++ ###
+
+*/.gitignore
+
 # Prerequisites
 *.d
 

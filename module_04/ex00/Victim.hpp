@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/17 16:13:24 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/17 16:51:21 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/10 15:32:16 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,20 @@
 # include <iostream>
 
 class Victim {
-	private:
+	protected:
 		std::string _name;
+    Victim();
+
 	public:
-		Victim();
 		Victim(std::string name);
-		~Victim();
+		virtual ~Victim();
 
 		Victim(const Victim &copy);
 		Victim &operator=(const Victim &copy);
 
 		virtual void		getPolymorphed() const;
 		std::string			getName() const;
+    void		setName(std::string name);
 };
 
 std::ostream	&operator<<(std::ostream &out, Victim const &victim);

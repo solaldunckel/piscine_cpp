@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/19 13:32:38 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/19 15:39:22 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/11 17:12:51 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,8 @@ void	SuperMutant::takeDamage(int damage)
 	damage = damage - 3;
 	if (damage < 0)
 		return ;
-	_hp -= damage;
+  if (_hp - damage < 0)
+    _hp = 0;
+  else
+  	_hp -= damage;
 }

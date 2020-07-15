@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 21:58:36 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/30 22:57:57 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/15 18:13:19 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int main() {
   Bureaucrat Denis("Denis", 2);
-  
+
   PRINT(Denis);
   try {
     Bureaucrat Michel("Michel", 156);
@@ -24,7 +24,7 @@ int main() {
   catch (std::exception &e) {
     PRINT(e.what());
   };
-  
+
   try
   {
     Denis.Promote();

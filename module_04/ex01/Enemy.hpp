@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/19 13:30:46 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/19 16:17:50 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/11 15:18:08 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,12 @@ class Enemy
 		// Operators
 		Enemy &operator=(const Enemy &copy);
 
+    std::string getType() const;
 		int 			getHP() const;
+    void 			setHP(int hp);
 		virtual void	takeDamage(int damage);
 
-	// protected:
+	protected:
 		int			_hp;
 		std::string	_type;
 };

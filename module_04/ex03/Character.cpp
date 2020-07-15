@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 11:22:45 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/29 17:16:55 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/11 16:53:04 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,18 @@ Character::Character(std::string name)
 }
 
 Character::~Character()
-{}
+{
+  for (int i = 0; i < _maxInventorySize; i++) {
+    if (_inventory[i]) {
+      delete _inventory[i];
+    }
+  }
+}
 
 Character::Character(const Character &copy)
 {
+  for (int i = 0; i < _maxInventorySize; i++)
+		_inventory[i] = NULL;
 	*this = copy;
 }
 
@@ -43,7 +51,17 @@ Character::Character(const Character &copy)
 
 Character	&Character::operator=(const Character &copy)
 {
-	(void)copy;
+	for (int i = 0; i < _maxInventorySize; i++) {
+    if (_inventory[i]) {
+      delete _inventory[i];
+      _inventory[i] = NULL;
+    }
+  }
+  for (int i = 0; i < _maxInventorySize; i++) {
+    if (copy._inventory[i])
+      equip(copy._inventory[i]->clone());
+  }
+  _name = copy._name;
 	return (*this);
 }
 
@@ -58,6 +76,9 @@ std::string const	&Character::getName() const
 
 void				Character::equip(AMateria *m)
 {
+  for (int i = 0; i < _maxInventorySize; i++)
+		if (_inventory[i] == m)
+			return ;
 	for (int i = 0; i < _maxInventorySize; i++)
 	{
 		if (!_inventory[i])

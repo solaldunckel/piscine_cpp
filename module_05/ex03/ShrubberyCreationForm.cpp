@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/01 14:06:42 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/07/01 17:33:10 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/15 17:33:18 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
 ShrubberyCreationForm::~ShrubberyCreationForm() {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) {
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : Form(copy) {
   *this = copy;
 }
 
@@ -44,7 +44,32 @@ ShrubberyCreationForm  &ShrubberyCreationForm::operator=(const ShrubberyCreation
 void ShrubberyCreationForm::action() const {
   std::ofstream file;
 
-  file.open(this->getTarget() + "_shrubbery", std::ofstream::app);
-  file << "Trees" << std::endl;
+  file.open(this->getTarget() + "_shrubbery", std::ios::trunc);
+  if (file.bad())
+    return;
+  for (int i = 0; i < 3; i++) {
+    file <<
+"             /\\\n"
+"            /  \\\n"
+"           /++++\\\n"
+"          /  ()  \\\n"
+"          /      \\\n"
+"         /~`~`~`~`\\\n"
+"        /  ()  ()  \\\n"
+"        /          \\\n"
+"       /*&*&*&*&*&*&\\\n"
+"      /  ()  ()  ()  \\\n"
+"      /              \\\n"
+"     /++++++++++++++++\\\n"
+"    /  ()  ()  ()  ()  \\\n"
+"    /                  \\\n"
+"   /~`~`~`~`~`~`~`~`~`~`\\\n"
+"  /  ()  ()  ()  ()  ()  \\\n"
+"  /*&*&*&*&*&*&*&*&*&*&*&\\\n"
+" /                        \\\n"
+"/,.,.,.,.,.,.,.,.,.,.,.,.,.\\\n"
+"           |   |";
+    file << std::endl;
+  }
   file.close();
 }

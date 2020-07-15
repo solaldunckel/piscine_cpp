@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 11:22:45 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/29 17:18:11 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/11 15:31:01 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class AMateria
 		AMateria();
 		AMateria(std::string const &type);
 		AMateria(const AMateria &copy);
-		~AMateria();
+		virtual ~AMateria();
 
 		// Operators
 		AMateria &operator=(const AMateria &copy);
@@ -34,7 +34,8 @@ class AMateria
 		unsigned int		getXP() const; //Returns the Materia's XP
 		virtual AMateria*	clone() const = 0;
 		virtual void		use(ICharacter& target);
-	private:
+
+	protected:
 		unsigned int	_xp;
 		std::string		_type;
 };

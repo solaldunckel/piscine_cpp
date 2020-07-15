@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 21:58:36 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/07/01 11:58:00 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/12 21:51:35 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@
 class Bureaucrat {
  public:
   // Constructors & Deconstructors
-  Bureaucrat();
   Bureaucrat(std::string name, int grade);
   Bureaucrat(const Bureaucrat &copy);
   ~Bureaucrat();
@@ -49,6 +48,7 @@ class Bureaucrat {
   };
 
  private:
+  Bureaucrat();
   const std::string name_;
   int grade_;
 };

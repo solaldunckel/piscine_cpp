@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 18:39:36 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/26 19:14:09 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/11 15:27:01 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class TacticalMarine : public ISpaceMarine
 		// Constructors & Deconstructors
 		TacticalMarine();
 		TacticalMarine(const TacticalMarine &copy);
-		~TacticalMarine();
+		virtual ~TacticalMarine();
 
 		// Operators
 		TacticalMarine &operator=(const TacticalMarine &copy);

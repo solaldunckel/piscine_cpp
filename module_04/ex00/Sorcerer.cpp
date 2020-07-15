@@ -6,14 +6,11 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/17 16:13:24 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/17 16:41:48 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/10 14:45:42 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sorcerer.hpp"
-
-Sorcerer::Sorcerer()
-{}
 
 Sorcerer::Sorcerer(std::string name, std::string title) : _name(name), _title(title)
 {
@@ -32,12 +29,12 @@ Sorcerer::Sorcerer(const Sorcerer &copy)
 
 std::string	Sorcerer::getName() const
 {
-	return (_name);
+	return _name;
 }
 
 std::string	Sorcerer::getTitle() const
 {
-	return (_title);
+	return _title;
 }
 
 void		Sorcerer::polymorph(const Victim &victim) const
@@ -47,7 +44,8 @@ void		Sorcerer::polymorph(const Victim &victim) const
 
 Sorcerer	&Sorcerer::operator=(const Sorcerer &copy)
 {
-	(void)copy;
+	_name = copy._name;
+  _title = copy._title;
 	return (*this);
 }
 

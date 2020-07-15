@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 21:58:36 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/07/01 17:30:37 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/15 18:16:49 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 /*
 ** Constructors & Deconstructors
 */
-
-Bureaucrat::Bureaucrat() {
-}
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : name_(name) {
   if (grade > 150)
@@ -30,7 +27,7 @@ Bureaucrat::Bureaucrat(const std::string name, int grade) : name_(name) {
 Bureaucrat::~Bureaucrat() {
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &copy) {
+Bureaucrat::Bureaucrat(const Bureaucrat &copy) : name_(copy.getName()) {
   *this = copy;
 }
 
@@ -48,11 +45,11 @@ Bureaucrat  &Bureaucrat::operator=(const Bureaucrat &copy) {
 */
 
 const char *Bureaucrat::GradeTooHighException::what() const throw() {
-  return "error: Grade too high";
+  return "Grade too high";
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw() {
-  return "error: Grade too low";
+  return "Grade too low";
 }
 
 std::string Bureaucrat::getName() const {
@@ -71,7 +68,7 @@ void Bureaucrat::Promote() {
 
 void Bureaucrat::Relegate() {
   if (grade_ == 150)
-    throw Bureaucrat::GradeTooHighException();
+    throw Bureaucrat::GradeTooLowException();
   grade_++;
 }
 

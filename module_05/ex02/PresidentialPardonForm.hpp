@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/01 14:06:42 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/07/01 17:33:39 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/12 22:23:31 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class PresidentialPardonForm : public Form {
   // Constructors & Deconstructors
   PresidentialPardonForm(std::string target);
   PresidentialPardonForm(const PresidentialPardonForm &copy);
-  ~PresidentialPardonForm();
+  virtual ~PresidentialPardonForm();
 
   // Operators
   PresidentialPardonForm &operator=(const PresidentialPardonForm &copy);

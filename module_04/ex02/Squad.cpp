@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/26 18:39:36 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/29 09:34:47 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/11 17:02:48 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ Squad::~Squad()
 
 Squad::Squad(const Squad &copy)
 {
+  _count = 0;
+	_units = NULL;
 	*this = copy;
 }
 
@@ -38,7 +40,6 @@ Squad::Squad(const Squad &copy)
 
 Squad	&Squad::operator=(const Squad &copy)
 {
-	printf("operator\n");
 	_count = copy._count;
 	this->deleteUnits();
 	this->copyUnits(copy);
@@ -59,7 +60,7 @@ ISpaceMarine*	Squad::getUnit(int id) const
 	int		count = 0;
 	t_list	*tmp = _units;
 
-	if (!tmp)
+	if (!tmp || id >= _count)
 		return NULL;
 	while (tmp)
 	{

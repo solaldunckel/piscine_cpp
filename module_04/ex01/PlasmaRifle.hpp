@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/19 13:30:46 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/19 15:13:01 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/10 16:20:19 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class PlasmaRifle : public AWeapon
 		// Constructors & Deconstructors
 		PlasmaRifle();
 		PlasmaRifle(const PlasmaRifle &copy);
-		~PlasmaRifle();
+		virtual ~PlasmaRifle();
 
 		// Operators
 		PlasmaRifle &operator=(const PlasmaRifle &copy);

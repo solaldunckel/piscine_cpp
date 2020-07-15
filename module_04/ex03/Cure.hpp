@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 11:22:45 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/29 12:44:32 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/11 15:30:06 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Cure : public AMateria
 		// Constructors & Deconstructors
 		Cure();
 		Cure(const Cure &copy);
-		~Cure();
+		virtual ~Cure();
 
 		// Operators
 		Cure &operator=(const Cure &copy);

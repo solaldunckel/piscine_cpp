@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/01 14:06:42 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/07/01 17:33:15 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/15 17:55:16 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,16 @@ class ShrubberyCreationForm : public Form {
   // Constructors & Deconstructors
   ShrubberyCreationForm(std::string target);
   ShrubberyCreationForm(const ShrubberyCreationForm &copy);
-  ~ShrubberyCreationForm();
+  virtual ~ShrubberyCreationForm();
 
   // Operators
   ShrubberyCreationForm &operator=(const ShrubberyCreationForm &copy);
 
   // Functions
   void action() const;
+
+ private:
+  static std::string const Trees[];
 };
 
 #endif

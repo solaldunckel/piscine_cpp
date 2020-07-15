@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/01 14:06:42 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/07/01 17:32:49 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/12 22:25:07 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target)
 RobotomyRequestForm::~RobotomyRequestForm() {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) {
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) : Form(copy) {
   *this = copy;
 }
 

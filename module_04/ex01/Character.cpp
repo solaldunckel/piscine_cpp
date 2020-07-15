@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/19 13:30:47 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/19 16:54:52 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/11 17:27:29 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ Character	&Character::operator=(const Character &copy)
 {
 	_name = copy._name;
 	_ap = copy._ap;
+  _weapon = copy._weapon;
 	return (*this);
 }
 
@@ -76,15 +77,16 @@ void	Character::equip(AWeapon *weapon)
 
 void	Character::attack(Enemy *enemy)
 {
-	if (_ap < _weapon->getAPCost() || _weapon == NULL)
+	if (_ap < _weapon->getAPCost() || _weapon == NULL || !enemy)
 		return;
 	_ap -= _weapon->getAPCost();
-	std::cout << _name << " attacks " << enemy->_type << " with a "
+	std::cout << _name << " attacks " << enemy->getType() << " with a "
 		<< _weapon->getName() << std::endl;
 	_weapon->attack();
-	enemy->_hp -= _weapon->getDamage();
-	if (enemy->_hp <= 0)
-		delete enemy;
+	enemy->takeDamage(_weapon->getDamage());
+	if (enemy->getHP() <= 0) {
+    delete enemy;
+  }
 }
 
 std::string	Character::getName() const

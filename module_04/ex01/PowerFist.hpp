@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/19 13:30:46 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/06/19 15:17:21 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/07/10 16:20:24 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class PowerFist : public AWeapon
 		// Constructors & Deconstructors
 		PowerFist();
 		PowerFist(const PowerFist &copy);
-		~PowerFist();
+		virtual ~PowerFist();
 
 		// Operators
 		PowerFist &operator=(const PowerFist &copy);
