@@ -35,10 +35,21 @@ void identify_from_reference(Base &p) {
   catch (std::exception &e) {}
 }
 
+Base *generate(void) {
+  int randBase = rand() % 3;
+  if (randBase == 0)
+    return (new A);
+  else if (randBase == 1)
+    return (new B);
+  else
+    return (new C);
+}
+
 int main() {
-  A *baseA = new A;
-  B *baseB = new B;
-  C *baseC = new C;
+  srand(time(NULL));
+  Base *baseA = generate();
+  Base *baseB = generate();
+  Base *baseC = generate();
 
   identify_from_pointer(baseA);
   identify_from_pointer(baseB);
@@ -46,4 +57,7 @@ int main() {
   identify_from_reference(*baseA);
   identify_from_reference(*baseB);
   identify_from_reference(*baseC);
+  delete baseA;
+  delete baseB;
+  delete baseC;
 }

@@ -32,7 +32,7 @@ void *serialize(void) {
     array2[i] = randAlphanumericChar();
   }
 
-  char *mem = new char[sizeof(array1) + sizeof(array2) + sizeof(n)];
+  char *mem = new char[sizeof(array1) + sizeof(n) + sizeof(array2)];
 
   int j = 0;
   for (int i = 0; i < (int)sizeof(array1); i++) {
@@ -54,11 +54,10 @@ void *serialize(void) {
 Data *deserialize(void *raw) {
   Data *data = new Data;
 
-  char *c = reinterpret_cast<char *>(raw);
-
-	data->s1 = std::string(c, 8);
-	data->n = *reinterpret_cast<int *>(c + 8);
-	data->s2 = std::string(c + 8 + sizeof(int), 8);
+	data->s1 = std::string(reinterpret_cast<char *>(raw), 8);
+	data->n = *reinterpret_cast<int *>(static_cast<char*>(raw) + 8);
+	data->s2 = std::string(reinterpret_cast<char *>(static_cast<char*>(raw)
+    + 8 + sizeof(int)), 8);
 
   return data;
 }
@@ -72,4 +71,6 @@ int main() {
   d = deserialize(p);
 
   std::cout << d->s1 << " " << d->n << " " << d->s2 << std::endl;
+  delete static_cast<char*>(p);
+  delete d;
 }
