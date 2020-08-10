@@ -12,8 +12,7 @@ char randAlphanumericChar() {
         "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         "abcdefghijklmnopqrstuvwxyz";
 
-  const size_t max_index = (sizeof(charset) - 1);
-    return charset[ rand() % max_index ];
+  return charset[rand() % (sizeof(charset) - 1)];
 };
 
 void *serialize(void) {
@@ -33,38 +32,34 @@ void *serialize(void) {
     array2[i] = randAlphanumericChar();
   }
 
-  char *mem;
-  mem = new char[sizeof(array1) + sizeof(array2) + sizeof(n)];
+  char *mem = new char[sizeof(array1) + sizeof(array2) + sizeof(n)];
 
   int j = 0;
   for (int i = 0; i < (int)sizeof(array1); i++) {
     mem[j] = array1[i];
     j++;
   }
-  for (int i = 0; i < (int)sizeof(n); i++) {
-    mem[j] = byte[i];
-    j++;
-  }
+
+  *reinterpret_cast<int *>(mem + sizeof(array1)) = std::rand();
+  j += sizeof(n);
+
   for (int i = 0; i < (int)sizeof(array2); i++) {
     mem[j] = array2[i];
     j++;
   }
+
   return mem;
 }
 
 Data *deserialize(void *raw) {
   Data *data = new Data;
-  char s[9];
 
-  memcpy(&s, raw, 8);
-  s[8] = 0;
-  data->s1 = s;
-  raw = static_cast<char*>(raw) + 8;
-  memcpy(&data->n, raw, 4);
-  raw = static_cast<char*>(raw) + 4;
-  memcpy(&s, raw, 8);
-  s[8] = 0;
-  data->s2 = s;
+  char *c = reinterpret_cast<char *>(raw);
+
+	data->s1 = std::string(c, 8);
+	data->n = *reinterpret_cast<int *>(c + 8);
+	data->s2 = std::string(c + 8 + sizeof(int), 8);
+
   return data;
 }
 
