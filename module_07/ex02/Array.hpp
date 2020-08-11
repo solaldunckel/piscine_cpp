@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/03 17:00:12 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/07/03 18:04:07 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/08/11 14:46:18 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Array {
 
   // Operators
   Array &operator=(const Array &copy) {
-    if (copy.size_)
+    if (size_ > 0)
       delete [] array_;
     size_ = copy.size_;
     array_ = new T[size_];
@@ -41,7 +41,7 @@ class Array {
     return *this;
   };
   T &operator[](int idx) {
-    if (idx >= size_)
+    if (idx >= size_ || idx < 0)
         throw Array::OutOfLimit();
     return array_[idx];
   }

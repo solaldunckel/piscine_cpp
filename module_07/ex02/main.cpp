@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/03 17:00:12 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/07/04 13:44:05 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/08/11 15:08:19 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main() {
   for (int i = 0; i < test2.size(); i++) {
       std::cout << test2[i] << std::endl;
   }
-  
+
   std::cout << "\nCatching exception : " << std::endl;
   try {
     for (int i = 0; i < 4; i++) {

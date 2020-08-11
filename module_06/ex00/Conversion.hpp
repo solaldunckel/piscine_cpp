@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/21 17:06:37 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/07/21 18:38:47 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/08/10 18:11:54 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <string>
 # include <iomanip>
 # include <cmath>
+# include <limits.h>
 
 class Conversion {
  public:
