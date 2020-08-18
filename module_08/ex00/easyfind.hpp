@@ -5,13 +5,12 @@
 
 template <typename T>
 int &easyfind(T &container, int n) {
-  typename T::iterator it = container.begin();
-  while (it != container.end()) {
-    if (*it == n)
-      return *it;
-    it++;
-  }
-  throw std::exception();
+  typename T::iterator it = std::find(container.begin(), container.end(), n);
+
+  if (it == container.end())
+    throw std::runtime_error("element not found");
+
+  return *it;
 }
 
 #endif

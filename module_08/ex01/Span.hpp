@@ -17,6 +17,7 @@ class Span {
 
   // Functions
   void addNumber(int num);
+  void addMultipleNumbers(int begin, int end);
   int shortestSpan();
   int longestSpan();
 

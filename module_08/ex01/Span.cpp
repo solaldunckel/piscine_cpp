@@ -40,6 +40,17 @@ void Span::addNumber(int num) {
   container_.push_back(num);
 }
 
+void Span::addMultipleNumbers(int begin, int end) {
+  int i = begin;
+
+  while (i < end) {
+    if (container_.size() == max_size_)
+      throw std::runtime_error("container full");
+    container_.push_back(i);
+    i++;
+  }
+}
+
 int Span::shortestSpan() {
   if (container_.empty() || container_.size() == 1)
     throw std::runtime_error("container empty or contains only one element");
