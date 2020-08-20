@@ -17,7 +17,7 @@ class Span {
 
   // Functions
   void addNumber(int num);
-  void addMultipleNumbers(int begin, int end);
+  void addMultipleNumbers(std::vector<int>::iterator const &begin, std::vector<int>::iterator const &end);
   int shortestSpan();
   int longestSpan();
 

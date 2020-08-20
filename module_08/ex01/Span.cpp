@@ -40,14 +40,14 @@ void Span::addNumber(int num) {
   container_.push_back(num);
 }
 
-void Span::addMultipleNumbers(int begin, int end) {
-  int i = begin;
+void Span::addMultipleNumbers(std::vector<int>::iterator const &begin, std::vector<int>::iterator const &end) {
+  std::vector<int>::iterator it = begin;
 
-  while (i < end) {
+  while (it != end) {
     if (container_.size() == max_size_)
       throw std::runtime_error("container full");
-    container_.push_back(i);
-    i++;
+    container_.push_back(*it);
+    it++;
   }
 }
 
