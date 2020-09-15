@@ -6,7 +6,7 @@
 /*   By: sdunckel <sdunckel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/04 12:16:45 by sdunckel          #+#    #+#             */
-/*   Updated: 2020/08/20 17:23:32 by sdunckel         ###   ########.fr       */
+/*   Updated: 2020/09/16 00:57:19 by sdunckel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int main()
   mstack.push(3);
   mstack.push(5);
   mstack.push(737);
-  //[...]
   mstack.push(0);
 
   MutantStack<int>::iterator it = mstack.begin();
@@ -41,31 +40,90 @@ int main()
   }
 
   std::stack<int> s(mstack);
+  std::cout << s.top() << std::endl;
+
+  MutantStack<int> mstack2(mstack);
+
+  mstack.push(2);
+  mstack.push(8);
+  mstack.push(12);
+
+  it = mstack2.begin();
+  ite = mstack2.end();
+
+  while (it != ite)
+  {
+    std::cout << *it << std::endl;
+    ++it;
+  }
+
+  MutantStack<int> mstack3;
+
+  mstack3 = mstack2;
+
+  it = mstack3.begin();
+  ite = mstack3.end();
+
+  while (it != ite)
+  {
+    std::cout << *it << std::endl;
+    ++it;
+  }
 
   std::cout << "\nTest with List" << std::endl;
 
-  std::list<int> lstack;
+  std::list<int> mlist;
 
-  lstack.push_back(5);
-  lstack.push_back(17);
-  std::cout << lstack.back() << std::endl;
-  lstack.pop_back();
-  std::cout << lstack.size() << std::endl;
-  lstack.push_back(3);
-  lstack.push_back(5);
-  lstack.push_back(737);
-  //[...]
-  lstack.push_back(0);
+  mlist.push_back(5);
+  mlist.push_back(17);
+  std::cout << mlist.back() << std::endl;
+  mlist.pop_back();
+  std::cout << mlist.size() << std::endl;
+  mlist.push_back(3);
+  mlist.push_back(5);
+  mlist.push_back(737);
+  mlist.push_back(0);
 
-  std::list<int>::iterator it2 = lstack.begin();
-  std::list<int>::iterator ite2 = lstack.end();
-  ++it2;
-  --it2;
+  std::list<int>::iterator itl = mlist.begin();
+  std::list<int>::iterator itel = mlist.end();
+  ++itl;
+  --itl;
 
-  while (it2 != ite2)
+  while (itl != itel)
   {
-    std::cout << *it2 << std::endl;
-    ++it2;
+    std::cout << *itl << std::endl;
+    ++itl;
+  }
+
+  std::list<int> s2(mlist);
+  std::cout << s2.back() << std::endl;
+
+  std::list<int> mlist2(mlist);
+
+  mlist.push_back(2);
+  mlist.push_back(8);
+  mlist.push_back(12);
+
+  itl = mlist2.begin();
+  itel = mlist2.end();
+
+  while (itl != itel)
+  {
+    std::cout << *itl << std::endl;
+    ++itl;
+  }
+
+  std::list<int> mlist3;
+
+  mlist3 = mlist2;
+
+  itl = mlist3.begin();
+  itel = mlist3.end();
+
+  while (itl != itel)
+  {
+    std::cout << *itl << std::endl;
+    ++itl;
   }
   return 0;
 }
